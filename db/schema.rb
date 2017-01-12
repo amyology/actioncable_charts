@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111181446) do
+ActiveRecord::Schema.define(version: 20170112230913) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,14 +21,6 @@ ActiveRecord::Schema.define(version: 20170111181446) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "polls", force: :cascade do |t|
-    t.string   "name"
-    t.string   "description"
-    t.string   "code"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-  end
-
   create_table "visits", force: :cascade do |t|
     t.string   "ip"
     t.string   "country"
@@ -37,13 +29,6 @@ ActiveRecord::Schema.define(version: 20170111181446) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "postal_code"
-  end
-
-  create_table "votes", force: :cascade do |t|
-    t.integer  "poll_id"
-    t.string   "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
 end
