@@ -1,0 +1,23 @@
+var myChart;
+
+$(document).ready(function() {
+
+  $.getJSON('messages', function(result) {
+    var chartData = {
+      labels: [],
+      datasets: [{
+        label: 'Number of Visits',
+        data: result
+      }]
+    };
+
+    var ctx = document.getElementById("myChart");
+
+    myChart = new Chart(ctx, {
+      type: 'bar',
+      data: chartData
+    });
+
+  });
+
+});

@@ -1,0 +1,63 @@
+<!-- highcharts -->
+<!-- <div id="container" style="width:100%; height:400px"></div> -->
+
+<!-- chart.js -->
+<canvas id="thisChart" width="300" height="150"></canvas>
+
+
+<script type="text/javascript">
+
+// chart.js
+$(document).ready(function() {
+
+  $.getJSON('visits', function(result) {
+    var tempData = {
+      labels: <%= raw @countries.map.to_json %>,
+      datasets: [{
+        label: 'Number of Visits',
+        data: result,
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(255, 206, 86, 0.2)',
+          'rgba(75, 192, 192, 0.2)',
+          'rgba(153, 102, 255, 0.2)',
+          'rgba(255, 159, 64, 0.2)'
+        ]
+      }]
+    };
+
+    var ctx = document.getElementById("thisChart");
+
+    var thisChart = new Chart(ctx, {
+      type: 'bar',
+      data: tempData
+    });
+
+  });
+
+});
+
+// highcharts
+  // $(document).ready(function() {
+
+  //   var options = {
+  //     chart: {
+  //       renderTo: 'container',
+  //       type: 'column'
+  //     },
+  //     series: [{
+
+  //     }],
+  //     xAxis: {
+  //       categories: <%= raw @countries.map.to_json %>
+  //     }
+  //   };
+
+  //   $.getJSON('visits', function(data) {
+  //     options.series = data;
+  //     var chart = new Highcharts.Chart(options);
+  //   });
+  // });
+
+</script>

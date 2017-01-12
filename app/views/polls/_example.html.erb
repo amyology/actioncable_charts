@@ -1,0 +1,17 @@
+<p><%= @poll.description %></p>
+
+<%= form_for [@poll, @vote] do |f| %>
+  <%= f.radio_button :value, "yes" %>
+  <%= f.label :value, "Yes", value: "yes" %>
+  <br/>
+
+  <%= f.radio_button :value, "no" %>
+  <%= f.label :value, "No", value: "no" %>
+  <br/>
+
+  <%= f.radio_button :value, "maybe" %>
+  <%= f.label :value, "Maybe", value: "maybe" %>
+  <br/>
+
+  <%= f.submit %>
+<% end %>

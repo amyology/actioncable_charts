@@ -1,0 +1,12 @@
+<h1>Chat room</h1> 
+
+<canvas id="myChart" width="300" height="150"></canvas>
+
+<div id="messages"> 
+  <%= render @messages %>
+</div> 
+
+<form> 
+  <label>Say something:</label><br> 
+  <input type="text" data-behavior="room_speaker"> 
+</form>

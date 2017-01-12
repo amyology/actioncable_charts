@@ -1,0 +1,8 @@
+<ul>
+  <% @polls.each do |poll| %>
+    <li>
+      <%= link_to poll.name, "/polls/#{poll.id}" %>
+      [<%= link_to "results", poll_results_path(poll) %>]
+    </li>
+  <% end %>
+</ul>
